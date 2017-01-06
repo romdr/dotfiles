@@ -88,7 +88,6 @@ fi
 . /etc/lsb-release
 if [ "$DISTRIB_RELEASE" == "14.04" ]; then
 alias installmyfavs='sudo apt-get install -y python-software-properties software-properties-common && \
-  sudo apt-add && \
   sudo add-add-repository ppa:pi-rho/dev &&
   sudo apt-get update && \
   sudo apt-get install -y htop nano tmux wget && \
