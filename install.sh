@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # For testing
-home=/tmp
+home=~
 
 dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 files=".Xresources .bashrc .tmux.conf"
