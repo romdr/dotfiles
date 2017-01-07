@@ -1,12 +1,10 @@
 #!/bin/bash
 
-# For testing
-home=~
+files=".Xresources .bashrc .tmux.conf"
 
+home=~
 dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 dirold="$( realpath $dir/../dotfiles_old )"
-#dirold="$dir/old"
-files=".Xresources .bashrc .tmux.conf"
 
 echo -e "These files: $files will be:\n - moved from $home to $dirold\n - replaced with symlinks to new dotfiles"
 read -p "Press ENTER to continue, or CTRL+C to stop now"
@@ -20,5 +18,4 @@ for file in $files; do
 done
 
 . ~/.bashrc
-
 echo -e ".bashrc reloaded\nOld files saved in $dirold"
