@@ -69,9 +69,9 @@ fi
 export LC_COLLATE="C"
 
 # Docker
-alias d='docker ps --format "table {{.Image}}\t{{.RunningFor}}\t{{.Status}}\t{{.Names}}"'
-alias ds='docker ps --format "table {{.Status}}\t{{.Names}}"'
-alias dw='watch -n 3 "docker ps --format \"table {{.Image}}\t{{.RunningFor}}\t{{.Status}}\t{{.Names}}\""'
+alias d='docker ps -a --format "table {{.Image}}\t{{.RunningFor}}\t{{.Status}}\t{{.Names}}"'
+alias ds='docker ps -a --format "table {{.Status}}\t{{.Names}}"'
+alias dw='watch -n 3 "docker ps -a --format \"table {{.Image}}\t{{.RunningFor}}\t{{.Status}}\t{{.Names}}\""'
 
 # ls
 alias l='ls -lh'
