@@ -80,10 +80,10 @@ alias lr='ls -lhR'
 alias lar='ls -lAhR'
 
 # tmux
-if hash tmux 2>/dev/null; then
-  alias tx='tmux'
-else
+if hash tmux-next 2>/dev/null; then
   alias tx='tmux-next'
+else
+  alias tx='tmux'
 fi
 
 # quick install of always used programs
@@ -92,7 +92,7 @@ if [ "$DISTRIB_RELEASE" == "14.04" ]; then
 alias installmyfavs='sudo apt-get install -y python-software-properties software-properties-common && \
   sudo apt-add-repository ppa:pi-rho/dev && \
   sudo apt-get update && \
-  sudo apt-get install -y htop nano tmux wget && \
+  sudo apt-get install -y htop nano tmux-next wget && \
   . ~/.bashrc'
 fi
 if [ "$DISTRIB_RELEASE" == "16.04" ]; then
