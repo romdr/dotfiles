@@ -76,6 +76,8 @@ alias dw='watch -n 3 "docker ps -a --format \"table {{.Image}}\t{{.RunningFor}}\
 # ls
 alias l='ls -lh'
 alias la='ls -lAh'
+alias lr='ls -lhR'
+alias lar='ls -lAhR'
 
 # tmux
 if hash tmux 2>/dev/null; then
