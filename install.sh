@@ -4,7 +4,7 @@ files=".Xresources .bashrc .tmux.conf"
 
 home=~
 dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-dirold="~/dotfiles_old"
+dirold="$home/dotfiles_old"
 
 echo -e "These files: $files will be:\n - moved from $home to $dirold\n - replaced with symlinks to new dotfiles"
 read -p "Press ENTER to continue, or CTRL+C to stop now"
