@@ -72,9 +72,17 @@ fi
 export LC_COLLATE="C"
 
 # Docker
-alias d='docker ps -a --format "table {{.Image}}\t{{.RunningFor}}\t{{.Status}}\t{{.Names}}"'
+dps(){
+    filter=$1
+    if [ -z "$1" ]; then
+        filter=""
+    fi
+    docker ps -a --format "table {{.Image}}\t{{.RunningFor}}\t{{.Status}}\t{{.Names}}" | grep "$filter"
+}
+alias d=dps
 alias ds='docker ps -a --format "table {{.Status}}\t{{.Names}}"'
 alias dw='watch -n 3 "docker ps -a --format \"table {{.Image}}\t{{.RunningFor}}\t{{.Status}}\t{{.Names}}\""'
+alias de='docker exec -it'
 
 # ls
 alias l='ls -lh'
