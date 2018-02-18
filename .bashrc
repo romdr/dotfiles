@@ -27,7 +27,10 @@ shopt -s checkwinsize
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # Prompt
-PS1="\[$(tput bold)\]\[\033[38;5;34m\]\u\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\]@\h › \[$(tput sgr0)\]\[\033[38;5;69m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]\n\\$ \[$(tput sgr0)\]"
+parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+PS1="\[$(tput bold)\]\[\033[38;5;34m\]\u\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\]@\h › \[$(tput sgr0)\]\[\033[38;5;69m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]\[\033[38;5;1m\]\$(parse_git_branch)\[\033[38;5;15m\]\n\\$ \[$(tput sgr0)\]"
 
 # Enable color support of ls and grep
 if [ -x /usr/bin/dircolors ]; then
@@ -81,9 +84,9 @@ alias lar='ls -lAhR'
 
 # tmux
 if hash tmux-next 2>/dev/null; then
-  alias tx='tmux-next'
+  alias tx='tmux-next -2'
 else
-  alias tx='tmux'
+  alias tx='tmux -2'
 fi
 
 # quick install of always used programs
