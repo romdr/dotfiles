@@ -85,10 +85,28 @@ alias dw='watch -n 3 "docker ps -a --format \"table {{.Image}}\t{{.RunningFor}}\
 alias de='docker exec -it'
 
 # ls
-alias l='ls -lh'
-alias la='ls -lAh'
-alias lr='ls -lhR'
-alias lar='ls -lAhR'
+alias l='ls -lh --group-directories-first'
+alias la='ls -lAh --group-directories-first'
+alias lr='ls -lhR --group-directories-first'
+alias lar='ls -lAhR --group-directories-first'
+
+# git
+alias gs='git status'
+alias gl='git log'
+alias gd='git diff'
+alias gb='git branch'
+alias gc='git checkout'
+alias gco='git commit'
+alias gg='git log --all --decorate --oneline --graph'
+
+# terraform
+alias ta='terraform apply'
+alias tp='terraform plan'
+alias tl='terraform state list'
+alias tv='terraform validate'
+
+# misc
+alias m='micro'
 
 # tmux
 if hash tmux-next 2>/dev/null; then
@@ -98,7 +116,7 @@ else
 fi
 
 # quick install of always used programs
-. /etc/lsb-release
+. /etc/lsb-release > /dev/null 2>&1
 if [ "$DISTRIB_RELEASE" == "14.04" ]; then
 alias installmyfavs='sudo apt-get install -y python-software-properties software-properties-common && \
   sudo apt-add-repository ppa:pi-rho/dev && \
