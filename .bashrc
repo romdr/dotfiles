@@ -107,6 +107,7 @@ alias tv='terraform validate'
 
 # misc
 alias m='micro'
+alias rsync-progress='rsync --info=progress2 --info=name0'
 
 # tmux
 if hash tmux-next 2>/dev/null; then
